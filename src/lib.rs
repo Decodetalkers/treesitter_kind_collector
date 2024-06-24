@@ -36,15 +36,15 @@ fn json_to_mod(file: String) -> TokenStream {
     let pa = span.source_file().path();
     let pa = pa
         .parent()
-        .expect(format!("{} do not have parent dir", pa.display()).as_str())
+        .unwrap_or_else(|| panic!("{} do not have parent dir", pa.display()))
         .canonicalize()
         .expect("Cannot canonicalize the path");
 
     let real_pa = pa.join(&file);
 
     let context = std::fs::read_to_string(&real_pa)
-        .expect(format!("Unreachable file, {}", real_pa.display()).as_str());
-    let data = get_basetypes_from_str(&context).expect(format!("Unreadable data").as_str());
+        .unwrap_or_else(|_| panic!("Unreachable file, {}", real_pa.display()));
+    let data = get_basetypes_from_str(&context).unwrap_or_else(|_| { panic!("{}", "Unreadable data".to_string()) });
 
     let mut tokens = Vec::new();
     let mut consts_tokens = Vec::new();
