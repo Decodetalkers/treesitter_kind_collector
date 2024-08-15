@@ -20,7 +20,7 @@ use quote::quote;
 
 mod node_object;
 
-/// macro to tranport a `struct abc` to `mod abc`, where has all treesitter kinds
+/// macro to transport a `struct abc` to `mod abc`, where has all treesitter kinds
 #[proc_macro_attribute]
 pub fn tree_sitter_kinds(attr: TokenStream, item: TokenStream) -> TokenStream {
     let tokens: Vec<_> = attr.into_iter().collect();
