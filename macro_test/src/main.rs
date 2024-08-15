@@ -1,7 +1,9 @@
-use treesitter_type_collector::treesitter_consts;
-treesitter_consts!("../../asserts/node-types.json");
+use treesitter_type_collector::tree_sitter_consts;
+
+#[tree_sitter_consts("asserts/node-types.json")]
+struct NodeTypes;
 
 fn main() {
-    println!("{}", node_consts::SYS_ARGUMENT);
-    println!("{:?}", node_consts::NODE_TYPES);
+    println!("{}", NodeTypes::SYS_ARGUMENT);
+    println!("{:?}", NodeTypes::NODE_TYPES);
 }
