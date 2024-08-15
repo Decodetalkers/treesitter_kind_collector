@@ -1,3 +1,21 @@
+//! # Auto transport node_types.json to rust mod
+//!
+//! Min example
+//!
+//! ```rust
+//!
+//! use treesitter_kind_collector::tree_sitter_kinds;
+//! #[tree_sitter_kinds("asserts/node-types.json")]
+//! struct NodeKindTypes;
+//!
+//! fn main() {
+//!     println!("{}", NodeKindTypes::ARGUMENT);
+//!     println!("{:?}", NodeKindTypes::NODE_TYPES);
+//! }
+//! ```
+//!
+//!
+
 use std::path::Path;
 
 use node_object::get_basetypes_from_str;
@@ -7,8 +25,9 @@ use quote::quote;
 
 mod node_object;
 
+/// macro to tranport a `struct abc` to `mod abc`, where has all treesitter kinds
 #[proc_macro_attribute]
-pub fn tree_sitter_consts(attr: TokenStream, item: TokenStream) -> TokenStream {
+pub fn tree_sitter_kinds(attr: TokenStream, item: TokenStream) -> TokenStream {
     let tokens: Vec<_> = attr.into_iter().collect();
     let mod_tokens: Vec<_> = item.into_iter().collect();
 
@@ -54,7 +73,7 @@ fn json_to_unique_mod(modname: &str, file: String, is_public: bool) -> TokenStre
         if da.contains_unique() {
             continue;
         }
-        let prename = format!("KIND_{}", da.get_type().to_uppercase());
+        let prename = da.get_type().to_uppercase();
         let name = Ident::new(&prename, Span::call_site());
         let type_ = da.get_type();
         tokens.push(quote! {

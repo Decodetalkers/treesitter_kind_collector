@@ -83,7 +83,7 @@ dependencies = [
 
 [[package]]
 name = "treesitter_kind_collector"
-version = "0.1.0"
+version = "0.2.0"
 dependencies = [
  "proc-macro2",
  "quote",
