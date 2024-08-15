@@ -4,6 +4,6 @@ use treesitter_type_collector::tree_sitter_consts;
 struct NodeTypes;
 
 fn main() {
-    println!("{}", NodeTypes::SYS_ARGUMENT);
+    println!("{}", NodeTypes::KIND_ARGUMENT);
     println!("{:?}", NodeTypes::NODE_TYPES);
 }

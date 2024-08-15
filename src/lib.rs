@@ -54,7 +54,7 @@ fn json_to_unique_mod(modname: &str, file: String, is_public: bool) -> TokenStre
         if da.contains_unique() {
             continue;
         }
-        let prename = format!("SYS_{}", da.get_type().to_uppercase());
+        let prename = format!("KIND_{}", da.get_type().to_uppercase());
         let name = Ident::new(&prename, Span::call_site());
         let type_ = da.get_type();
         tokens.push(quote! {
