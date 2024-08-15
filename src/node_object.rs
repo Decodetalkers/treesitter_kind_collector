@@ -31,7 +31,7 @@ pub fn get_basetypes_from_str(content: &str) -> Result<Vec<BaseType>> {
 
 #[test]
 fn test_json() {
-    let content = include_str!("../macro_test/asserts/node-types.json");
+    let content = include_str!("../asserts/node-types.json");
     let res = get_basetypes_from_str(content).unwrap();
     assert_eq!(res.len(), 65);
 }

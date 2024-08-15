@@ -9,13 +9,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "49f1f14873335454500d59611f1cf4a4b0f786f9ac11f4312a78e4cf2566695b"
 
 [[package]]
-name = "macro_test"
-version = "0.1.0"
-dependencies = [
- "treesitter_type_collector",
-]
-
-[[package]]
 name = "proc-macro2"
 version = "1.0.86"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -71,6 +64,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "simplebase"
+version = "0.1.0"
+dependencies = [
+ "treesitter_kind_collector",
+]
+
+[[package]]
 name = "syn"
 version = "2.0.68"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -82,7 +82,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "treesitter_type_collector"
+name = "treesitter_kind_collector"
 version = "0.1.0"
 dependencies = [
  "proc-macro2",

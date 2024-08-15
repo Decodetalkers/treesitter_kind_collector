@@ -1,4 +1,4 @@
-use treesitter_type_collector::tree_sitter_consts;
+use treesitter_kind_collector::tree_sitter_consts;
 
 #[tree_sitter_consts("asserts/node-types.json")]
 struct NodeTypes;
